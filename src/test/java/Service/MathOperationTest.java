@@ -1,52 +1,55 @@
 package Service;
 
+import Controleur.Calculator;
+import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MathOperationTest {
-    int result = 0;
+    private MathOperation objMathOperation;
 
-    @Test
-    void ShoulAddTwoNumbers() {
-        //given
-        MathOperation mathOperation = new MathOperation();
-        // when
-         result = mathOperation.somme(2,3);
-        // then
-        Assertions.assertEquals(5,0);
+    @BeforeEach
+    public void setUp(){
+        objMathOperation = new MathOperation();
+        System.out.println("initialiser l'instance de calculatrice");
 
     }
 
     @Test
-    public void ShouldSoustractTwoNumbers() {
+    void ShoulSumTwoNumbers() {
+        //given
+        long result = objMathOperation.sum(4,5);
+        // then
+        Assertions.assertEquals(6, result);
+
+    }
+
+  @Test
+    public void ShouldSoubstractTwoNumbers() {
         // given
-        MathOperation mathOperation = new MathOperation();
-        //when
-        result = mathOperation.soustraction(2,3);
-        //then
-        Assertions.assertEquals(1,0);
+        long result = objMathOperation.soubstraction(3,5);
+        //then;
+        Assertions.assertEquals(-2, result);
     }
 
     @Test
     public void ShouldMiltiplyTwoNumbers() {
         // given
-        MathOperation mathOperation = new MathOperation();
-        //when
-        result = mathOperation.soustraction(2,3);
-        //then
-        Assertions.assertEquals(6,0);
+        long result = objMathOperation.multiplication(3,2);
+        // Then
+        Assertions.assertEquals(6 , result);
     }
 
     @Test
     public void ShouldDivideTwoNumbers() {
-        // given
-        MathOperation mathOperation = new MathOperation();
-        //when
-        result = mathOperation.soustraction(6,3);
-        //then
-        Assertions.assertEquals(2,0);
+         // Given
+        long result = objMathOperation.divide(10,5);
+        //Then
+        Assertions.assertEquals(2, result);
+
     }
 
 }
